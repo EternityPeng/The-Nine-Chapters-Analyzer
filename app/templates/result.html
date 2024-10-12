@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<style type="text/css">
+  h3{color:#1c1c1c;text-align:center;}
+  h4{height: 20px;line-height: 20px;margin-top: 10px;width: 100%;color: #02ad94;font-size: 18px;font-weight: bold;text-align: center;}
+  .mytitle{text-align:center;margin:auto;margin-top:1%;margin-bottom:5%;height: 86px;width: 500px;padding: 10px 20px 10px 20px;border-radius: 6px;}  
+  .subtitle{font-size: 35px;color:white;text-align:center;margin-left:5%;-webkit-text-stroke:1px #828282;}
+  .selectbox{text-align:center;}
+  body{ /*为了设置浏览器背景图居中，不随浏览器缩放改变大小*/
+    position:absolute; 
+    overflow: hidden;
+    top:0; 
+    left:0; 
+    height:100%; 
+    width:100%; 
+    background-image:url("../static/background.png"); 
+    background-position: center 0; 
+    background-repeat: no-repeat; 
+    background-attachment:fixed; 
+    background-size: cover; 
+    -webkit-background-size: cover;/* 兼容Webkit内核浏览器如Chrome和Safari */ 
+    -o-background-size: cover;/* 兼容Opera */ 
+    zoom: 1;
+  }
+  form{position: relative;width: 460px;height: 460px;font-size: 20px;font-weight: bold;color: #1c1c1c;;text-align: center;}
+  input{font-size: 18px;}
+  select{font-size: 18px;}
+  .myButton{background: url("../static/button.png") no-repeat center / contain; width: 150px; height: 60px;cursor: pointer;border-width: 0;}
+  .container{overflow:hidden;padding: 16px;background-color: rgba(251, 251, 251, 0.6);border: 1px;margin-top: 30px;border-radius: 8px;margin: auto;text-align: center;backdrop-filter: blur(20px);}
+  .put{background-color: #fff; overflow-y:visible; width: 405px;height: 100px;font-size: 14px;font-family: Microsoft YaHei, sans-serif;border:0; border-radius: 5px; position: absolute; right: 12px; box-shadow: 1px 1px  6px  #a5dee4}
+  textarea{
+    height: auto;
+  }
+  @-webkit-keyframes fadeIn { 
+    0% {
+      opacity:0
+    }
+    100% {
+      opacity:1
+    }
+  }
+  @keyframes fadeIn { 
+    0% {
+      opacity:0
+    }
+    100% {
+      opacity:1
+    }
+  }
+  .cl-seamless-container {
+    position: relative;
+    top: 20px;
+    overflow: hidden;
+  }
+
+  .cl-seamless-list {
+    white-space: pre-wrap; 
+    text-align: left;
+    margin: auto 0;
+    padding: auto 0;
+      /* 滚动快慢会受滚动列表项的高度影响，在js中调节速率进行控制 */
+      /* animation: cl-scrolling 6s infinite linear; */
+  }
+
+  /* 鼠标移入滚动区域变成手型 */
+  .cl-seamless-container:hover .cl-seamless-list {
+      cursor: pointer;
+  }
+
+  /* 鼠标移入滚动区域暂停动画 */
+  .cl-seamless-container.pause .cl-seamless-list {
+      animation-play-state: paused !important;
+  }
+
+  /* 动画关键帧 */
+  @keyframes cl-scrolling {
+      0% {
+          transform: translateY(0);
+      }
+
+      100% {
+          transform: translateY(-100%);
+      }
+  }
+  .container_img{overflow:hidden;padding: 16px;margin-top: 30px;margin: auto;text-align: center;}
+ 
+  .container_img img{
+    max-width: 100%;
+    min-width: 100%;
+    cursor: pointer;
+  }
+  
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>算经解释器</title>
+    <div class="mytitle">
+      <img src="../static/title.png" width="410px"/><br>
+      <label class="subtitle" style="cursor:url('../static/mouse/MyDAPinceauselect.CUR'), pointer">Suan Ching Interpreter</label>
+    </div> 
+</head>
+<body>
+  <div style="position: relative;width: 1500px;height: 900px;margin: 0 auto;">
+  <div class="container" style="position: absolute; left: 25px; width: 380px; height: 200px; -webkit-animation: fadeIn 1s ease 0.3s 1 both;">
+    <img src="../static/question.png" width="65px" style="position:absolute;left: 15px;"/><br><br>
+    <div>
+      {{question}}
+    </div>
+  </div>
+  <div class="container" style="position: absolute; left: 25px; top: 280px; width: 380px; height: 200px; -webkit-animation: fadeIn 1s ease 0.3s 1 both;">
+    <img src="../static/lexical.png" width="120px" style="position:absolute;left: 15px;"/><br>
+    <div class="cl-seamless-container">
+      <div class="cl-seamless-list">
+        {{lexer}}
+      </div>
+    </div>
+  </div>
+  <div class="container" style="position: absolute; left: 465px; width: 440px; height: 480px; -webkit-animation: fadeIn 1s ease 0.3s 1 both;">
+    <img src="../static/syntax.png" width="120px" style="position:absolute;left: 15px;"/><br><br>
+    <div style="overflow-y: scroll; overflow-x: scroll; height: 450px; width: 450px;">
+      <div style="width: 300px;" class="container_img">
+      <img src="../static/parse_tree.png" width="300px" onclick="toggleFullScreen(this)"/>
+      <p>点击图片可放大</p>
+      
+      
+    </div>
+    <div style="width: 300px;">
+    {{parser|safe}}
+  </div>
+    </div>
+  </div>
+  <div class="container" style="position: absolute; left: 965px; width: 380px; height: 200px; -webkit-animation: fadeIn 1s ease 0.3s 1 both;">
+    <img src="../static/semantic.png" width="120px" style="position:absolute;left: 15px;"/><br><br>
+    <div style="height: 170px; width: 380px;">
+      <div style="width: 150px;" class="container_img">
+        <img src="../static/value_tree.png" width="100px" onclick="toggleFullScreen(this)"/>
+        <p>点击图片可放大</p>
+        
+      </div>
+      
+    </div>
+    </div>
+    <div class="container" style="position: absolute; left: 965px; top: 280px; width: 380px; height: 200px; -webkit-animation: fadeIn 1s ease 0.3s 1 both;">
+      <img src="../static/result.png" width="120px" style="position:absolute;left: 15px;"/><br><br>
+      <div>
+        {{final}}
+       
+      </div>
+  </div>
+  <button type="submit" class="myButton" style="color: white; left: 1195px; top: 500px; position: absolute;" onclick="location='{{ url_for('user.homepage') }}'">Back</button><br><br>
+
+  </div>
+
+</div>
+</body>
+</html>
+
+<script>
+function animation () {
+    var seamless_container = document.getElementsByClassName("cl-seamless-container");
+    for (let i = 0; i < seamless_container.length; i++) {
+        if (seamless_container[i].children.length > 0) {
+            // 限制每个容器的高度
+            let seamless_sub = seamless_container[i].children[0];
+            seamless_container[i].style="max-height: " + seamless_sub.clientHeight + "px";
+            // 调节滚动速率，使滚动速率不至于过快或过慢
+            let scroll_speed = Math.max(4, Math.ceil(seamless_sub.clientHeight / 35));
+            seamless_sub.style = "animation: cl-scrolling " + scroll_speed + "s infinite linear";
+            // 复制一份完全相同的列表，实现无缝滚动
+            seamless_container[i].innerHTML += seamless_container[i].innerHTML;
+        }
+
+        // 监听鼠标移入事件，暂停动画; 同时鼠标移出，继续动画
+        seamless_container[i].addEventListener("mouseenter", function(event) {
+            event.target.classList.add("pause");
+            
+        });
+        seamless_container[i].addEventListener("mouseleave", function(event) {
+            event.target.classList.remove("pause");
+        })
+    }
+}
+
+  animation();
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+      // 在这里执行你的代码，例如修改光标样式
+      document.body.style.cursor = 'url("../static/mouse/MyDAPinceauselect.CUR"), pointer';
+  });
+</script>
+
+<script>
+  function toggleFullScreen(img) {
+      if (img.requestFullscreen) {
+          img.requestFullscreen();
+      } else if (img.mozRequestFullScreen) {
+          img.mozRequestFullScreen();
+      } else if (img.webkitRequestFullscreen) {
+          img.webkitRequestFullscreen();
+      } else if (img.msRequestFullscreen) {
+          img.msRequestFullscreen();
+      }
+  }
+</script>

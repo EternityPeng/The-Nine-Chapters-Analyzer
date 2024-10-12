@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" style="cursor: url('../static/mouse/My\ DA\ Pinceau\ select.CUR');">
+  
+<style type="text/css">
+  h3{color:#1c1c1c;text-align:center;}
+  h4{height: 20px;line-height: 20px;margin-top: 10px;width: 100%;color: #02ad94;font-size: 18px;font-weight: bold;text-align: center;}
+  .mytitle{text-align:center;margin:auto;margin-top:1%;margin-bottom:5%;height: 86px;width: 500px;padding: 10px 20px 10px 20px;border-radius: 6px;}  
+  .subtitle{font-size: 35px;color:white;text-align:center;margin-left:5%;-webkit-text-stroke:1px #828282;}
+  .selectbox{text-align:center;}
+  body{ /*为了设置浏览器背景图居中，不随浏览器缩放改变大小*/
+    position:absolute; 
+    top:0; 
+    left:0; 
+    height:100%; 
+    width:100%; 
+    overflow: hidden;
+    background-image:url("../static/background.png"); 
+    background-position: center 0; 
+    background-repeat: no-repeat; 
+    background-attachment:fixed; 
+    background-size: cover; 
+    -webkit-background-size: cover;/* 兼容Webkit内核浏览器如Chrome和Safari */ 
+    -o-background-size: cover;/* 兼容Opera */ 
+    zoom: 1;
+  }
+  form{position: relative;width: 460px;height: 460px;font-size: 20px;font-weight: bold;color: #1c1c1c;;text-align: center;}
+  input{font-size: 18px;}
+  select{font-size: 18px;}
+  .myButton{background: url("../static/button.png") no-repeat center / contain; width: 150px; height: 60px;cursor: pointer; border-width: 0; border-style: none;}
+  .container{
+    overflow:hidden;
+    width: 460px;
+    height: 400px;
+    padding: 16px;
+    background-color: rgba(251, 251, 251, 0.6);
+    border: 1px;margin-top: 30px;
+    border-radius: 8px;margin: auto;
+    text-align: center;backdrop-filter: blur(20px);
+  }
+  .put{background-color: #fff; overflow-y:visible; width: 405px;height: 100px;font-size: 14px;font-family: Microsoft YaHei, sans-serif;border:0; border-radius: 5px; position: absolute; right: 12px; box-shadow: 1px 1px  6px  #a5dee4}
+  textarea{
+    height: auto;
+  }
+  @-webkit-keyframes fadeIn { 
+    0% {
+      opacity:0
+    }
+    100% {
+      opacity:1
+    }
+  }
+  @keyframes fadeIn { 
+    0% {
+      opacity:0
+    }
+    100% {
+      opacity:1
+    }
+  }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>算经解释器</title>
+    <div class="mytitle">
+      <img src="../static/title.png" width="410px"/><br>
+      <label class="subtitle" style="cursor: url('../static/mouse/MyDAPinceauTexte.CUR'), pointer;">Suan Ching Interpreter</label>
+    </div> 
+</head>
+<body>
+  <div class="container" style="-webkit-animation: fadeIn 1s ease 0.3s 1 both;">
+    <form method="post">
+      <img src="../static/subtitle.png" width="80px"/><br>
+      <label style="font-size: 15px;color:#1c1c1c;text-align:center;cursor: url('../static/mouse/MyDAPinceauTexte.CUR'), pointer;"">使用前，请先阅读<a href="./instruction" style="cursor: url('../static/mouse/MyDAPinceauother2.CUR'), pointer;">程序说明</a></label><br><br>
+      <label style="position:absolute; left:20px; padding: 7px; cursor: url('../static/mouse/MyDAPinceauTexte.CUR'), pointer;"">问题：</label><br><br>
+      <textarea type='text' class="put" style="position:absolute; left:20px; padding: 7px; cursor: url('../static/mouse/MyDAPinceauTexte.CUR'), pointer;" name="question" id="question" placeholder="请根据算经格式输入你想问的问题" required></textarea>
+      <div>
+      <input style="position:absolute; left: 32%; top:65%;padding: 7px; color: white; cursor: url('../static/mouse/MyDAPinceauother2.CUR'), pointer;" class="myButton" type="submit" value="提交">
+      </div>
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+      // 在这里执行你的代码，例如修改光标样式
+      document.body.style.cursor = 'url("../static/mouse/MyDAPinceauselect.CUR"), pointer';
+  });
+</script>
+

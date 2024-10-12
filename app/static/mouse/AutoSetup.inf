@@ -1,0 +1,63 @@
+[Version]
+signature="$CHICAGO$"
+
+[DefaultInstall]
+CopyFiles = Scheme.Cur
+AddReg    = Scheme.Reg,Wreg
+
+[DestinationDirs]
+Scheme.Cur = 10,"%CUR_DIR%"
+
+[Scheme.Reg]
+HKCU,"Control Panel\Cursors\Schemes","%SCHEME_NAME%",,"%10%\%CUR_DIR%\%pointer%,%10%\%CUR_DIR%\%help%,%10%\%CUR_DIR%\%work%,%10%\%CUR_DIR%\%busy%,%10%\%CUR_DIR%\%Cross%,%10%\%CUR_DIR%\%Text%,%10%\%CUR_DIR%\%Hand%,%10%\%CUR_DIR%\%Unavailiable%,%10%\%CUR_DIR%\%Vert%,%10%\%CUR_DIR%\%Horz%,%10%\%CUR_DIR%\%Dgn1%,%10%\%CUR_DIR%\%Dgn2%,%10%\%CUR_DIR%\%move%,%10%\%CUR_DIR%\%alternate%,%10%\%CUR_DIR%\%link%"
+
+[Wreg]
+HKCU,"Control Panel\Cursors",,0x00020000,"%SCHEME_NAME%"
+HKCU,"Control Panel\Cursors",AppStarting,0x00020000,"%10%\%CUR_DIR%\%work%"
+HKCU,"Control Panel\Cursors",Arrow,0x00020000,"%10%\%CUR_DIR%\%pointer%"
+HKCU,"Control Panel\Cursors",Crosshair,0x00020000,"%10%\%CUR_DIR%\%Cross%"
+HKCU,"Control Panel\Cursors",Hand,0x00020000,"%10%\%CUR_DIR%\%link%"
+HKCU,"Control Panel\Cursors",Help,0x00020000,"%10%\%CUR_DIR%\%Help%"
+HKCU,"Control Panel\Cursors",IBeam,0x00020000,"%10%\%CUR_DIR%\%Text%"
+HKCU,"Control Panel\Cursors",No,0x00020000,"%10%\%CUR_DIR%\%Unavailiable%"
+HKCU,"Control Panel\Cursors",NWPen,0x00020000,"%10%\%CUR_DIR%\%Hand%"
+HKCU,"Control Panel\Cursors",SizeAll,0x00020000,""
+HKCU,"Control Panel\Cursors",SizeNESW,0x00020000,""
+HKCU,"Control Panel\Cursors",SizeNS,0x00020000,""
+HKCU,"Control Panel\Cursors",SizeNWSE,0x00020000,""
+HKCU,"Control Panel\Cursors",SizeWE,0x00020000,""
+HKCU,"Control Panel\Cursors",UpArrow,0x00020000,"%10%\%CUR_DIR%\%alternate%"
+HKCU,"Control Panel\Cursors",Wait,0x00020000,"%10%\%CUR_DIR%\%busy%"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Runonce\Setup\","",,"rundll32.exe shell32.dll,Control_RunDLL main.cpl @0,1"
+
+[Scheme.Cur]
+"My DA Pinceau select.CUR"
+"My DA Pinceau help.CUR"
+"My DA Pinceau Wait.ANI"
+"My DA Pinceau Work b.ANI"
+"My DA Pinceau Precision.CUR"
+"My DA Pinceau Texte.CUR"
+"My DA Pinceau other.CUR"
+"My DA Pinceau No.CUR"
+"My DA Pinceau Size 1.CUR"
+"My DA Pinceau Link.CUR"
+
+[Strings]
+CUR_DIR         = "Cursors\主题之家\笔墨如锋鼠标指针"
+SCHEME_NAME     = "主题之家\笔墨如锋鼠标指针"
+pointer		= "My DA Pinceau select.CUR"
+help		= "My DA Pinceau help.CUR"
+work		= "My DA Pinceau Wait.ANI"
+busy		= "My DA Pinceau Work b.ANI"
+cross		= "My DA Pinceau Precision.CUR"
+text		= "My DA Pinceau Texte.CUR"
+hand		= "My DA Pinceau other.CUR"
+unavailiable	= "My DA Pinceau No.CUR"
+alternate	= "My DA Pinceau Size 1.CUR"
+link		= "My DA Pinceau Link.CUR"
+
+///////////////////////////////////////////////////
+//                                               //
+//  肥鱼地带  http://fatfish.91.tc               //
+//                                               //
+///////////////////////////////////////////////////

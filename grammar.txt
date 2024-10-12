@@ -1,0 +1,51 @@
+S' -> S
+S -> 今 有 E 。 Q ？
+S -> 又 有 E 。 Q ？
+E -> D
+E -> E ， D
+E -> E ， F
+D -> T I
+D -> I
+D -> U
+D -> G T I
+G -> T
+G -> T ，
+T -> type 
+T -> 一 type
+I -> V
+I -> V 、 I
+V -> num unit
+V -> num 分 unit 之 num
+V -> num unit K
+V -> K unit
+V -> L unit
+U -> num
+U -> num 分 之 num
+U -> num K
+U -> num L
+K -> 太
+K -> 半
+K -> 少
+L -> 太半
+L -> 少半
+F -> fun 其 U
+Q -> 问 Z	
+Q -> Y ， 问 Z
+Y -> 欲 为 type
+Y -> 欲 unit 率之
+Y -> 求 type num unit
+Z -> 为 type 几何
+Z -> type 几何
+Z -> unit 几何	
+Z -> 孰多 ， 多 几何
+Z -> 减多益少 ， 各 几何 而平
+Z -> W 得 几何
+W -> 各
+W -> 馀
+W -> 约之
+W -> 合之
+W -> type
+
+今 有 num 分 unit 之 num ， num 分 unit 之 num 。 问 减多益少 ， 各 几何 而 平 ？
+又 有 type type num unit ， type num unit 。 问 为 type 几何 ？
+今 有 type type num unit ， type num unit ， type type num unit ， type num unit 。 问 为 type 几何 ？
