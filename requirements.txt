@@ -1,6 +1,5 @@
 app==0.0.1
 blinker==1.7.0
-ca-certificates==2024.3.11
 click==8.1.7
 contourpy==1.2.1
 cycler==0.12.1
@@ -17,19 +16,14 @@ matplotlib==3.8.4
 networkx==3.2.1
 numpy==1.26.4
 openpyxl==3.1.2
-openssl==3.0.13
 packaging==24.0
 pandas==2.2.1
 pillow==10.3.0
 pip==23.3.1
 pyparsing==3.1.2
-python==3.9.18
 pytz==2024.1
 setuptools==68.2.2
-sqlite==3.41.2
 tzdata==2024.1
-vc==14.2
-vs2015_runtime==14.27.29016
 werkzeug==3.0.1
 wheel==0.41.2
 xeger==0.4.0
