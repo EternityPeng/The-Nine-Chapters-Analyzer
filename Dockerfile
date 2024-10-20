@@ -20,4 +20,4 @@ EXPOSE 8080
 ENV FLASK_APP=main.py
 
 # 启动 Flask 应用
-CMD ["flask", "run", "--host=0.0.0.0", "--port=80"]
+CMD ["flask", "run", "--host=0.0.0.0", "--port=8080"]
