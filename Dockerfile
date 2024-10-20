@@ -1,14 +1,14 @@
 # 使用 Python 3.11 作为基础镜像
 FROM python:3.11-slim
 
-# 安装 SimHei 字体和其他所需的依赖
-RUN apt-get update && apt-get install -y \
-    fontconfig \
-    && mkdir -p /usr/share/fonts/chinese \
-    && cd /usr/share/fonts/chinese \
-    && apt-get install -y wget \
-    && wget https://github.com/adamzy/simhei/raw/master/SimHei.ttf \
-    && fc-cache -fv
+# 安装 fontconfig 用于字体管理
+RUN apt-get update && apt-get install -y fontconfig && apt-get clean
+
+# 将字体文件从项目复制到容器中的字体目录
+COPY fonts/SimHei.ttf /usr/share/fonts/truetype/simhei/SimHei.ttf
+
+# 刷新字体缓存
+RUN fc-cache -fv
 
 # 设置工作目录
 WORKDIR /app
