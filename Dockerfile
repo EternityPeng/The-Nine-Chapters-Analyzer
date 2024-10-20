@@ -1,12 +1,14 @@
 # 使用 Python 3.11 作为基础镜像
 FROM python:3.11-slim
 
-# 安装字体
+# 安装 SimHei 字体和其他所需的依赖
 RUN apt-get update && apt-get install -y \
-    fonts-noto-cjk \  # 安装 Noto CJK 字体，包括常见中文字体
-    fonts-arphic-ukai \  # 安装 ARPHIC 的字体库
-    fonts-arphic-uming \  # 安装 ARPHIC 的 Uming 字体库
-    && apt-get clean  # 安装完毕后清理缓存
+    fontconfig \
+    && mkdir -p /usr/share/fonts/chinese \
+    && cd /usr/share/fonts/chinese \
+    && apt-get install -y wget \
+    && wget https://github.com/adamzy/simhei/raw/master/SimHei.ttf \
+    && fc-cache -fv
 
 # 设置工作目录
 WORKDIR /app
@@ -23,8 +25,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # 暴露 Flask 默认的运行端口
 EXPOSE 8080
 
-# 设置 Flask 环境变量
-ENV FLASK_APP=main.py
-
 # 启动 Flask 应用
-CMD ["flask", "run", "--host=0.0.0.0", "--port=8080"]
+CMD ["python", "main.py"]
